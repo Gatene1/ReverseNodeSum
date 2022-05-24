@@ -11,7 +11,7 @@ public class App {
         Node tempNode = head;
 
         // While there are digits to count in the number. If the number is 0.234, there are no more numbers.
-        while (((num % divisor) / (divisor / 10)) >= 1){
+        while ((((num % divisor) / (divisor / 10)) >= 1) || (num / divisor >= 1)){
             // if divisor is 100, the below says Node newNode = new Node((num % 100) / 10)), so 716 will be node(1).
             Node newNode = new Node((num % divisor) / (divisor / 10));
             newNode.setPrev(tempNode);
@@ -26,6 +26,7 @@ public class App {
     public static void main(String args[]) {
         int num1 = 716;
         int num2 = 592;
+        int min = 0;
 
         // make the two heads of the two linked lists be equal to the last digit of both ints above.
         Node head = new Node(num1 % 10);
@@ -36,6 +37,7 @@ public class App {
 
         num1 = nodeClass.convertLinkedListIntoInt(head);
         num2 = nodeClass.convertLinkedListIntoInt(head2);
+
 
         System.out.println("  " + num1);
         System.out.println("+ " + num2);

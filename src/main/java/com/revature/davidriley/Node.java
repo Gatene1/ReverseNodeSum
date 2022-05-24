@@ -43,6 +43,35 @@ public class Node {
         this.prev = prev;
     }
 
+    public Node push(Node head, int data) {
+        Node newNode = new Node(data);
+
+        head.prev = newNode;
+        newNode.next = head;
+        head = newNode;
+        return head;
+    }
+
+    public Node pop(Node head) {
+        head = head.next;
+        head.prev = null;
+        return head;
+    }
+
+    public int min(Node head) {
+        Node tempNode = head;
+        int minimum = tempNode.data;
+
+        while (tempNode != null) {
+            if (tempNode.data < minimum) {
+              minimum = tempNode.data;
+            }
+            tempNode = tempNode.next;
+        }
+
+        return minimum;
+    }
+
     public Node addToEnd (Node head, int data) {
         Node tempNode = head;
 
